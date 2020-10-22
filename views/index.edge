@@ -1,0 +1,55 @@
+@layout('layouts.app')
+
+@section('content')
+<div class="row mt-5">
+            <div class="col-3 offset-9">
+            &nbsp;
+                <a href="/login" class"btn btn-secondary text-right">Login</a> 
+            &nbsp;
+                <a href="/usuario" class"btn btn-secondary text-right">Crear Cuenta</a>
+            &nbsp;    
+                <a href="/ingresar" class"btn btn-primary text-right">Registro de Usuario y Vehiculo</a> 
+             
+            </div>
+        </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                           
+                            <th scope="col">Nombre de Usuario</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Contraseña</th>
+                            <th scope="col">Placa</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Propietario del Vehiculo</th>
+                            <th scope="col">Fecha Nacimiento</th>
+                        
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @each(usuario in usuarios)
+                        <tr>
+                            
+                            <td>{{usuario.nombre}}</td>
+                            <td>{{usuario.email}}</td>
+                            <td>{{usuario.Contraseña}}</td>
+                            <td>{{usuario.Placa}}</td>
+                            <td>{{usuario.carro}}</td>
+                            <td>{{usuario.Propietario}}</td>
+                            <td>{{usuario.Fecha}}</td>
+                        
+                            <td>
+
+                            <a href="/editar/{{usuario._id}}" class="btn btn-primary">Editar</a>
+
+                            <a href="/borrar/{{usuario._id}}" class="btn btn-danger">Borrar</a>
+
+                            </td>
+                        </tr>
+                        @endeach
+                    </tbody>
+                </table>
+
+@endsection
